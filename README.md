@@ -47,6 +47,14 @@ The suite is primarily configured via the root `.env` file:
 
 Advanced field mapping can be configured in `inv-collector/config.yaml`.
 
+## Debugging
+
+A `Makefile` is provided for common debugging tasks:
+- `make kafka-read`: Inspect messages in the Kafka topic.
+- `make db-query`: Query the PostgreSQL database directly.
+- `make logs`: Tail logs for all services.
+- `make db-shell`: Open a PostgreSQL shell inside the container.
+
 ## Testing
 
 The project includes unit and integration tests for all services.
