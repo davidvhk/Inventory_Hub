@@ -1,0 +1,17 @@
+listen_addr: "0.0.0.0:8088"
+debug: true
+
+kafka:
+  brokers: ["kafka:9092"]
+  topic: "${KAFKA_TOPIC}"
+  compression: "gzip"
+  required_acks: 1
+
+# Field mapping from Incoming XML to Kafka JSON
+fields:
+  inventory_timestamp: "REQUEST.CONTENT.HARDWARE.DATELASTLOGGEDUSER"
+  hostname: "REQUEST.CONTENT.HARDWARE.NAME"
+  ip_address: "REQUEST.CONTENT.HARDWARE.IPADDR"
+  os: "REQUEST.CONTENT.HARDWARE.OSNAME"
+  uuid: "REQUEST.CONTENT.HARDWARE.UUID"
+  device_id: "REQUEST.DEVICEID"

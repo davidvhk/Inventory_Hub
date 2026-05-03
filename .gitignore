@@ -1,0 +1,46 @@
+# Go
+/inv-collector/inv-collector
+/inv-consumer/inv-consumer
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Ruby on Rails
+/.bundle/
+/inv-web/db/*.sqlite3
+/inv-web/db/*.sqlite3-journal
+/inv-web/db/*.sqlite3-wal
+/inv-web/log/*
+/inv-web/tmp/*
+/inv-web/public/assets
+/inv-web/public/packs
+/inv-web/public/packs-test
+/inv-web/node_modules
+/inv-web/yarn-error.log
+/inv-web/config/master.key
+/inv-web/config/credentials/*.key
+/inv-web/storage/*
+!/inv-web/log/.keep
+!/inv-web/tmp/.keep
+!/inv-web/storage/.keep
+
+# Environment & Secrets
+.env
+.env*.local
+
+# Docker
+.dockerprojs
+docker-compose.override.yml
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store

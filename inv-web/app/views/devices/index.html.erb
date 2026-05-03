@@ -1,0 +1,24 @@
+<h1>Inventory Hub - Devices</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Hostname</th>
+      <th>IP Address</th>
+      <th>OS</th>
+      <th>Device ID</th>
+      <th>Last Seen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @devices.each do |device| %>
+      <tr>
+        <td><%= device.hostname %></td>
+        <td><%= device.ip_address %></td>
+        <td><%= device.os %></td>
+        <td><%= device.device_id %></td>
+        <td><%= device.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DB_HOST") { "localhost" } %>
+  username: <%= ENV.fetch("DB_USER") { "inv_user" } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { "inv_password" } %>
+
+development:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME") { "inventory_db" } %>
+
+test:
+  <<: *default
+  database: inv_web_test
+
+production:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME") { "inventory_db" } %>
