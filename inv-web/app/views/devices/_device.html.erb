@@ -1,0 +1,12 @@
+<tr id="<%= dom_id device %>">
+  <td><%= device.hostname %></td>
+  <td><%= device.ip_address %></td>
+  <td><%= device.os %></td>
+  <td><code><%= device.device_id %></code></td>
+  <td class="text-muted"><%= device.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+  <td>
+    <%= button_to "Delete", device_path(device), method: :delete, 
+        data: { turbo_confirm: "Are you sure?" }, 
+        class: "btn btn-danger btn-sm btn-delete-device" %>
+  </td>
+</tr>

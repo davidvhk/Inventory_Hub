@@ -4,6 +4,14 @@ source "https://rubygems.org"
 gem "rails", "~> 8.1.3"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+# Use JavaScript with no build step [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
+# Hotwire's single-page-load experience [https://github.com/hotwired/turbo-rails]
+gem "turbo-rails"
+# Hotwire's modest JavaScript framework [https://github.com/hotwired/stimulus-rails]
+gem "stimulus-rails"
+# Flexible authentication solution for Rails [https://github.com/heartcombo/devise]
+gem "devise"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]

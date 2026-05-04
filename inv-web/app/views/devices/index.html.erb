@@ -1,24 +1,47 @@
-<h1>Inventory Hub - Devices</h1>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+    <div class="d-flex align-items-center">
+      <img src="<%= asset_path('logo.svg') %>" alt="Logo" class="me-3" style="width: 50px;">
+      <h1 class="h2 mb-0">Inventory Hub</h1>
+    </div>
+    <div class="text-end">
+      <% if user_signed_in? %>
+        <span class="badge bg-primary text-uppercase me-2" style="font-size: 0.75rem;"><%= current_user.role %></span>
+        <span class="text-muted small"><%= current_user.email %></span>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-sm btn-outline-danger ms-3 d-inline-block" %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>Hostname</th>
-      <th>IP Address</th>
-      <th>OS</th>
-      <th>Device ID</th>
-      <th>Last Seen</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @devices.each do |device| %>
-      <tr>
-        <td><%= device.hostname %></td>
-        <td><%= device.ip_address %></td>
-        <td><%= device.os %></td>
-        <td><%= device.device_id %></td>
-        <td><%= device.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="mb-3 d-flex justify-content-between align-items-end">
+    <h2 class="h4 text-secondary mb-0">Live Device Monitoring</h2>
+    <div class="text-muted small">
+      <span class="spinner-grow spinner-grow-sm text-success" role="status"></span>
+      Real-time updates active
+    </div>
+  </div>
+
+  <%= turbo_stream_from "devices" %>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Hostname</th>
+            <th>IP Address</th>
+            <th>OS</th>
+            <th>Device ID</th>
+            <th>Last Seen</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="devices_list">
+          <%= render @devices %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

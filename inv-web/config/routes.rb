@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get "devices/index"
+  devise_for :users
+  resources :devices, only: [:index, :destroy]
   root "devices#index"
 end
